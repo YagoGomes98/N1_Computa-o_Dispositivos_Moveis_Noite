@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Lista de Super-Heróis favoritos</string>
+    <string name="txtHintCadastro">Nome do personagem...</string>
+    <string name="btnSalvar">Salvar</string>
+    <string-array name="editoras">
+        <item>Selecione a editora...</item>
+        <item>Marvel</item>
+        <item>DC</item>
+    </string-array>
+
+</resources>

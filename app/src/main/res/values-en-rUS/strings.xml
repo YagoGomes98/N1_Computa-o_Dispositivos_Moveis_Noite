@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Favorite Super-Hero list</string>
+    <string name="txtHintCadastro">Character name...</string>
+    <string name="btnSalvar">Save</string>
+    <string-array name="editoras">
+    <item>Select a publisher...</item>
+    <item>Marvel</item>
+    <item>DC</item>
+</string-array>
+</resources>
