@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -13,6 +15,7 @@ public class FormularioActivity extends AppCompatActivity {
 
     private EditText etNome;
     private Spinner spEditora;
+    private EditText txtDescricao;
     private Button btnSalvar;
     private String acao;
     private Cadastro cadastro;
@@ -25,6 +28,7 @@ public class FormularioActivity extends AppCompatActivity {
         etNome = findViewById(R.id.etNome);
         spEditora =  findViewById(R.id.spEditora);
         btnSalvar = findViewById(R.id.btnSalvar);
+        txtDescricao = findViewById(R.id.txtDescricao);
 
         acao = getIntent().getStringExtra("acao");
         if( acao.equals("editar") ){
@@ -43,6 +47,7 @@ public class FormularioActivity extends AppCompatActivity {
         int id = getIntent().getIntExtra("idCadastro", 0);
         cadastro = CadastroDAO.getCadastroById(this, id);
         etNome.setText( cadastro.getNome() );
+        txtDescricao.setText( cadastro.getDescricao() );
         String[] editoras = getResources().getStringArray(R.array.editoras);
         for (int i = 1; i < editoras.length ;i++){
             if( cadastro.getEditora().equals( editoras[i] ) ){
@@ -53,18 +58,21 @@ public class FormularioActivity extends AppCompatActivity {
     }
     private void salvar(){
         String nome = etNome.getText().toString();
-        if( nome.isEmpty() || spEditora.getSelectedItemPosition()  == 0 ){
-            Toast.makeText(this, "Você deve preencher todos os campos!", Toast.LENGTH_LONG ).show();
+        String descricao = txtDescricao.getText().toString();
+        if( nome.isEmpty() || spEditora.getSelectedItemPosition()  == 0 || descricao.isEmpty() ){
+            Toast.makeText(this, "Você deve preencher todos os campos.", Toast.LENGTH_LONG ).show();
         }else{
             if( acao.equals("inserir")) {
                 cadastro = new Cadastro();
             }
             cadastro.setNome( nome );
             cadastro.setEditora( spEditora.getSelectedItem().toString() );
+            cadastro.setDescricao( descricao );
             if( acao.equals("inserir")) {
                 CadastroDAO.inserir(this, cadastro);
                 etNome.setText("");
                 spEditora.setSelection(0, true);
+                txtDescricao.setText("");
             }else{
                 CadastroDAO.editar(this, cadastro);
                 finish();

@@ -13,6 +13,7 @@ public class CadastroDAO {
         ContentValues values = new ContentValues();
         values.put( "nome" , cadastro.getNome() );
         values.put( "editora" , cadastro.getEditora() );
+        values.put ("descricao", cadastro.getDescricao() );
 
         Banco conn = new Banco(context);
         SQLiteDatabase db = conn.getWritableDatabase();
@@ -24,6 +25,7 @@ public class CadastroDAO {
         ContentValues values = new ContentValues();
         values.put( "nome" , cadastro.getNome() );
         values.put( "editora" , cadastro.getEditora() );
+        values.put( "descricao", cadastro.getDescricao() );
 
         Banco conn = new Banco(context);
         SQLiteDatabase db = conn.getWritableDatabase();
@@ -54,6 +56,7 @@ public class CadastroDAO {
                 cadastro.setId(  cursor.getInt( 0 ) );
                 cadastro.setNome( cursor.getString( 1 ));
                 cadastro.setEditora( cursor.getString( 2 ));
+                cadastro.setDescricao( cursor.getString(3));
                 lista.add( cadastro );
 
             }while ( cursor.moveToNext() );
@@ -76,6 +79,7 @@ public class CadastroDAO {
             cadastro.setId(  cursor.getInt( 0 ) );
             cadastro.setNome( cursor.getString( 1 ));
             cadastro.setEditora( cursor.getString( 2 ));
+            cadastro.setDescricao( cursor.getString( 3));
 
             return cadastro;
 

@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
         listaDeCadastros = CadastroDAO.getCadastros(this);
         if( listaDeCadastros.size() == 0 ) {
-            Cadastro fake = new Cadastro("Lista Vazia...", "");
+            Cadastro fake = new Cadastro("Lista Vazia...", "", "");
             listaDeCadastros.add(fake);
             lvCadastros.setEnabled(false);
         }else{

@@ -30,18 +30,6 @@
         app:layout_constraintTop_toBottomOf="@+id/etNome" />
 
 
-    <EditText
-        android:id="@+id/txtDescricao"
-        android:layout_width="340dp"
-        android:layout_height="64dp"
-        android:ems="10"
-        android:hint="@string/txtHintDescricao"
-        android:inputType="textWebEditText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNome" />
-
 
     <Button
         android:id="@+id/btnSalvar"

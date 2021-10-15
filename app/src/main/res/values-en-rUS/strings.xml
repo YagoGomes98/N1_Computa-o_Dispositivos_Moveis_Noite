@@ -4,6 +4,8 @@
     <string name="app_name">Favorite Super-Hero list</string>
     <string name="txtHintCadastro">Character name...</string>
     <string name="btnSalvar">Save</string>
+    <string name="txtDescricao">Description</string>
+    <string name="txtHintDescricao">Description…</string>
     <string-array name="editoras">
     <item>Select a publisher...</item>
     <item>Marvel</item>
